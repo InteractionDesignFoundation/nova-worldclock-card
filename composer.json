@@ -1,0 +1,33 @@
+{
+    "name": "idf/nova-worldclock-card",
+    "description": "A Laravel Nova card to display world clocks",
+    "keywords": [
+        "laravel",
+        "nova",
+        "card",
+        "time",
+        "clock",
+        "world"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "IDF\\WorldClockCard\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "IDF\\WorldClockCard\\CardServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
