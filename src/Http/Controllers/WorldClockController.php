@@ -33,7 +33,7 @@ class WorldClockController
     {
         $prettifiedTimezone = ucwords(str_replace('_', ' ', $timezone));
         if ($hideContinents) {
-            $prettifiedTimezoneParts = explode('/', $timezone);
+            $prettifiedTimezoneParts = explode('/', $prettifiedTimezone);
             $prettifiedTimezone = end($prettifiedTimezoneParts);
         }
 
