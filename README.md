@@ -5,7 +5,8 @@
 
 A Laravel Nova card to display world clock.
 
-![image](https://user-images.githubusercontent.com/5278175/69892922-dc57ae80-131b-11ea-8345-6d0b816afb8e.png)
+![image](https://user-images.githubusercontent.com/5278175/69900939-f2e91e80-138a-11ea-8e45-5d93b2cdb3b6.png)
+
 
 ## Installation
 
@@ -20,6 +21,8 @@ composer require idf/nova-worldclock-card
 [Register your new card](https://nova.laravel.com/docs/2.0/customization/cards.html#registering-cards).
 
 ```php
+use IDF\WorldClockCard\WorldClock;
+
 public function cards()
 {
   return [
