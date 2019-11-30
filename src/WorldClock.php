@@ -25,8 +25,8 @@ class WorldClock extends Card
         parent::__construct($component);
 
         $this->withMeta([
-            'nightStart' => 19,
-            'nightEnd' => 6,
+            'timezoneDescriptions' => [],
+            'nightHours' => [19, 6],
         ]);
     }
 
@@ -53,6 +53,7 @@ class WorldClock extends Card
 
     /**
      * @see https://www.php.net/manual/en/function.date.php
+     *
      * @param string $timeFormat
      * @return $this
      */
@@ -73,13 +74,13 @@ class WorldClock extends Card
     public function nightRange(int $nightStart, int $nightEnd)
     {
         return $this->withMeta([
-            'nightStart' => $nightStart,
-            'nightEnd' => $nightEnd,
+            'nightHours' => [$nightStart, $nightEnd],
         ]);
     }
 
     /**
      * Hide continent from timezone name: Asia/Dubai => Dubai
+     *
      * @param bool $hideContinents
      * @return $this
      */
@@ -90,10 +91,29 @@ class WorldClock extends Card
         ]);
     }
 
+    /**
+     * How often to fetch new data from server
+     *
+     * @param int $ms
+     * @return $this
+     */
     public function updatePeriod(int $ms = 1000)
     {
         return $this->withMeta([
             'ms' => $ms,
+        ]);
+    }
+
+    /**
+     * Add text description to timezones. Format: ['tzName' => 'Text description']
+     *
+     * @param array $descriptions
+     * @return $this
+     */
+    public function timezoneDescriptions(array $descriptions)
+    {
+        return $this->withMeta([
+            'timezoneDescriptions' => $descriptions,
         ]);
     }
 }

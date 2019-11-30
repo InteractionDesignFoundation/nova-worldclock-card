@@ -11,15 +11,14 @@ class WorldClockController
     {
         $timeFormat = $request->get('timeFormat', 'h:i:s');
 
-        $nightStart = (int) $request->get('nightStart');
-        $nightEnd = (int) $request->get('nightEnd');
+        $nightHours = $request->get('nightHours');
         $hideContinents = $request->json('hideContinents') === true;
 
         $times = [];
         foreach ($request->get('timezones', []) as $timezone) {
             $time = now($timezone);
-            $night = $this->isNight($time, $nightStart, $nightEnd);
-            $times[] = [
+            $night = $this->isNight($time, (int) $nightHours[0], (int) $nightHours[1]);
+            $times[$timezone] = [
                 'name' => $this->prettifyTimezoneName($time->getTimezone()->getName(), $hideContinents),
                 'time' => $time->format($timeFormat),
                 'night' => $night,

@@ -7,14 +7,17 @@
                         <th class="tableHeader">City</th>
                         <th class="tableHeader">Time</th>
                     </tr>
-                    <tr v-for="time in this.times">
+                    <tr v-for="(tzInfo, tzRawName) in this.times">
                         <td class="timezoneRow">
-                            {{time.name}}
+                            <div>{{tzInfo.name}}</div>
+                            <div v-if="card.timezoneDescriptions.hasOwnProperty(tzRawName)" class="text-xs text-grey">
+                                {{card.timezoneDescriptions[tzRawName]}}
+                            </div>
                         </td>
                         <td class="timezoneRow">
-                            <time>{{time.time}}</time>
-                            <span v-if="time.night" class="night">🌙</span>
-                            <span v-if="!time.night" class="day">☀️</span>
+                            <time>{{tzInfo.time}}</time>
+                            <span v-if="tzInfo.night" class="night">🌙</span>
+                            <span v-if="!tzInfo.night" class="day">☀️</span>
                         </td>
                     </tr>
                 </table>
@@ -24,7 +27,7 @@
     </card>
 </template>
 
-<style>
+<style scoped>
     .day {
         color: transparent;
         text-shadow: 0 0 0 #f4b21f;
@@ -61,13 +64,11 @@
         },
         methods: {
             getTime() {
-                this.timezones = [];
                 Nova.request()
                     .post('/nova-vendor/worldclock/timezones', {
                         timezones: this.card.timezones,
                         timeFormat: this.card.timeFormat,
-                        nightStart: this.card.nightStart,
-                        nightEnd: this.card.nightEnd,
+                        nightHours: this.card.nightHours,
                         hideContinents: this.card.hideContinents,
                     })
                     .then(res => {
