@@ -1,12 +1,11 @@
-# World Clock
+# World Clock Laravel Nova Card
 
 [![Latest Stable Version](https://poser.pugx.org/idf/nova-worldclock-card/v/stable)](https://packagist.org/packages/idf/nova-worldclock-card)
 [![Total Downloads](https://poser.pugx.org/idf/nova-worldclock-card/downloads)](https://packagist.org/packages/idf/nova-worldclock-card)
 
 A Laravel Nova card to display world clock.
 
-![image](https://user-images.githubusercontent.com/5278175/69900939-f2e91e80-138a-11ea-8e45-5d93b2cdb3b6.png)
-
+![image](https://user-images.githubusercontent.com/5278175/69902036-267f7500-139a-11ea-834b-cd9f34f47b6f.png)
 
 ## Installation
 
@@ -37,6 +36,10 @@ public function cards()
         ->updatePeriod(1000) // Optional, to set updating time period in millisecond. Default is 1000 ms (1sec)
         ->nightRange(22, 6) // Optional, to set range of night hours. Default is [19; 6).
         ->hideContinents() // Optional, hide continents from timezone-names.
+        ->timezoneDescriptions([ // Optional, add text description to timezones.
+            'Asia/Tokyo' => 'Yuto, Hana', 
+            'Asia/Dubai' => 'Alya, Omar, Ibrahim', 
+        ])
   ];
 }
 ```
