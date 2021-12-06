@@ -37,7 +37,7 @@ class CardServiceProvider extends ServiceProvider
         }
 
         Route::middleware(['nova'])
-            ->prefix('nova-vendor/worldclock')
+            ->prefix('nova-vendor/interaction-design-foundation/worldclock')
             ->group(__DIR__.'/../routes/api.php');
     }
 }

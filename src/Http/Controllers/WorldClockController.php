@@ -7,15 +7,22 @@ use Illuminate\Support\Carbon;
 
 class WorldClockController
 {
-    public function timezones(Request $request)
+    /** @return array{string, array{name: string, time: string, night: bool}} */
+    public function timezones(Request $request): array
     {
-        $timeFormat = $request->get('timeFormat', 'h:i:s');
+        $request->validate([
+            'timeFormat' => ['required'],
+            'nightHours' => ['required'],
+            'timezones' => ['required'],
+        ]);
 
-        $nightHours = $request->get('nightHours');
+        $timeFormat = $request->input('timeFormat', 'h:i:s');
+
+        $nightHours = $request->input('nightHours');
         $hideContinents = $request->json('hideContinents') === true;
 
         $times = [];
-        foreach ($request->get('timezones', []) as $timezone) {
+        foreach ($request->input('timezones', []) as $timezone) {
             $time = now($timezone);
             $night = $this->isNight($time, (int) $nightHours[0], (int) $nightHours[1]);
             $times[$timezone] = [

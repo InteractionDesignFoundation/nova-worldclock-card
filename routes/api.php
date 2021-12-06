@@ -1,7 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 
-use InteractionDesignFoundation\WorldClockCard\Http\Controllers\ClockController;
-use Illuminate\Http\Request;
+use InteractionDesignFoundation\WorldClockCard\Http\Controllers\WorldClockController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +18,4 @@ use Illuminate\Support\Facades\Route;
 //     //
 // });
 
-Route::post('/timezones', 'InteractionDesignFoundation\WorldClockCard\Http\Controllers\WorldClockController@timezones');
+Route::post('/timezones', [WorldClockController::class, 'timezones']);
