@@ -20,7 +20,7 @@ composer require idf/nova-worldclock-card
 [Register your new card](https://nova.laravel.com/docs/2.0/customization/cards.html#registering-cards).
 
 ```php
-use IDF\WorldClockCard\WorldClock;
+use InteractionDesignFoundation\WorldClockCard\WorldClock;
 
 public function cards()
 {

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace IDF\WorldClockCard;
+namespace InteractionDesignFoundation\WorldClockCard;
 
 use Illuminate\Support\Carbon;
 use Laravel\Nova\Card;

@@ -1,5 +1,5 @@
 {
-    "name": "idf/nova-worldclock-card",
+    "name": "interaction-design-foundation/nova-worldclock-card",
     "description": "A Laravel Nova card to display world clocks",
     "keywords": [
         "laravel",
@@ -15,13 +15,13 @@
     },
     "autoload": {
         "psr-4": {
-            "IDF\\WorldClockCard\\": "src/"
+            "InteractionDesignFoundation\\WorldClockCard\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "IDF\\WorldClockCard\\CardServiceProvider"
+                "InteractionDesignFoundation\\WorldClockCard\\CardServiceProvider"
             ]
         }
     },

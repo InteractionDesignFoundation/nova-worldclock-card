@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace IDF\WorldClockCard\Http\Controllers;
+namespace InteractionDesignFoundation\WorldClockCard\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;

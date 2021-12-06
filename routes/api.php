@@ -1,6 +1,6 @@
 <?php
 
-use IDF\WorldClockCard\Http\Controllers\ClockController;
+use InteractionDesignFoundation\WorldClockCard\Http\Controllers\ClockController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +19,4 @@ use Illuminate\Support\Facades\Route;
 //     //
 // });
 
-Route::post('/timezones', 'IDF\WorldClockCard\Http\Controllers\WorldClockController@timezones');
+Route::post('/timezones', 'InteractionDesignFoundation\WorldClockCard\Http\Controllers\WorldClockController@timezones');
