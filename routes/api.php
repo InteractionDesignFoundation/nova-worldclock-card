@@ -14,8 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/endpoint', function (Request $request) {
-//     //
-// });
-
-Route::post('/timezones', [WorldClockController::class, 'timezones']);
+Route::post('/timezones', [WorldClockController::class, 'timezones'])->name('nova.cards.worldClock.refresh');

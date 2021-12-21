@@ -2,14 +2,12 @@
 
 namespace InteractionDesignFoundation\WorldClockCard;
 
-use Illuminate\Support\Carbon;
 use Laravel\Nova\Card;
 
 class WorldClock extends Card
 {
     /**
      * The width of the card (1/3, 1/2, or full).
-     *
      * @var string
      */
     public $width = '1/3';
@@ -27,12 +25,12 @@ class WorldClock extends Card
         $this->withMeta([
             'timezoneDescriptions' => [],
             'nightHours' => [19, 6],
+            'refreshRoute' => route('nova.cards.worldClock.refresh')
         ]);
     }
 
     /**
      * Get the component name for the element.
-     *
      * @return string
      */
     public function component()
@@ -41,10 +39,10 @@ class WorldClock extends Card
     }
 
     /**
-     * @param array $timezones
+     * @param list<string> $timezones
      * @return $this
      */
-    public function timezones(array $timezones)
+    public function timezones(array $timezones): static
     {
         return $this->withMeta([
             'timezones' => $timezones,
@@ -52,12 +50,10 @@ class WorldClock extends Card
     }
 
     /**
-     * @see https://www.php.net/manual/en/function.date.php
-     *
-     * @param string $timeFormat
+     * @param string $timeFormat Time, compatiable with date()function, {@see https://www.php.net/manual/en/function.date.php}
      * @return $this
      */
-    public function timeFormat(string $timeFormat)
+    public function timeFormat(string $timeFormat): static
     {
         return $this->withMeta([
             'timeFormat' => $timeFormat,
@@ -66,12 +62,11 @@ class WorldClock extends Card
 
     /**
      * Specify hours range: when a night starts and ends
-     *
      * @param int $nightStart
      * @param int $nightEnd
      * @return $this
      */
-    public function nightRange(int $nightStart, int $nightEnd)
+    public function nightRange(int $nightStart, int $nightEnd): static
     {
         return $this->withMeta([
             'nightHours' => [$nightStart, $nightEnd],
@@ -84,20 +79,15 @@ class WorldClock extends Card
      * @param bool $hideContinents
      * @return $this
      */
-    public function hideContinents(bool $hideContinents = true)
+    public function hideContinents(bool $hideContinents = true): static
     {
         return $this->withMeta([
             'hideContinents' => $hideContinents,
         ]);
     }
 
-    /**
-     * How often to fetch new data from server
-     *
-     * @param int $ms
-     * @return $this
-     */
-    public function updatePeriod(int $ms = 1000)
+    /** How often to fetch new data from server */
+    public function updatePeriod(int $ms = 1000): static
     {
         return $this->withMeta([
             'ms' => $ms,
@@ -106,11 +96,10 @@ class WorldClock extends Card
 
     /**
      * Add text description to timezones. Format: ['tzName' => 'Text description']
-     *
-     * @param array $descriptions
+     * @param array<string, string> $descriptions
      * @return $this
      */
-    public function timezoneDescriptions(array $descriptions)
+    public function timezoneDescriptions(array $descriptions): static
     {
         return $this->withMeta([
             'timezoneDescriptions' => $descriptions,

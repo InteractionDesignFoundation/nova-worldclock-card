@@ -65,7 +65,7 @@
         methods: {
             getTime() {
                 Nova.request()
-                    .post('/nova-vendor/worldclock/timezones', {
+                    .post(this.card.refreshRoute, {
                         timezones: this.card.timezones,
                         timeFormat: this.card.timeFormat,
                         nightHours: this.card.nightHours,
