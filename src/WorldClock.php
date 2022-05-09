@@ -50,7 +50,7 @@ class WorldClock extends Card
     }
 
     /**
-     * @param string $timeFormat Time, compatiable with date()function, {@see https://www.php.net/manual/en/function.date.php}
+     * @param string $timeFormat Time, compatible with date()function, {@see https://www.php.net/manual/en/function.date.php}
      * @return $this
      */
     public function timeFormat(string $timeFormat): static

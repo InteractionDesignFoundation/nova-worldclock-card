@@ -13,7 +13,7 @@ class WorldClockController
         $request->validate([
             'timeFormat' => ['required'],
             'nightHours' => ['required'],
-            'timezones' => ['required'],
+            'timezones' => ['array'],
         ]);
 
         $timeFormat = $request->input('timeFormat', 'h:i:s');
