@@ -10,7 +10,7 @@
                     <tr v-for="(tzInfo, tzRawName) in this.times">
                         <td class="timezoneRow">
                             <div>{{tzInfo.name}}</div>
-                            <div v-if="card.timezoneDescriptions.hasOwnProperty(tzRawName)" class="text-xs text-grey">
+                            <div v-if="card.timezoneDescriptions.hasOwnProperty(tzRawName)" class="text-xs text-grey mb-2">
                                 {{card.timezoneDescriptions[tzRawName]}}
                             </div>
                         </td>
