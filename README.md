@@ -29,7 +29,6 @@ public function cards()
   return [
      (new WorldClock())
         ->timezones([
-            'Asia/Tokyo',
             'Asia/Dubai',
             'America/New_York',
             'Europe/Kiev',
@@ -39,8 +38,9 @@ public function cards()
         ->nightRange(22, 6) // Optional, to set range of night hours. Default is [19; 6).
         ->hideContinents() // Optional, hide continents from timezone-names.
         ->timezoneDescriptions([ // Optional, add text description to timezones.
-            'Asia/Tokyo' => 'Yuto, Hana',
-            'Asia/Dubai' => 'Alya, Omar, Ibrahim',
+            'Asia/Dubai' => 'Yuto, Hana',
+            'America/New_York' => 'Mark',
+            'Europe/Kiev' => 'Slava, Ukraine',
         ]),
   ];
 }
