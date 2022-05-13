@@ -11,7 +11,6 @@ class CardServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
-     *
      * @return void
      */
     public function boot()
@@ -21,13 +20,12 @@ class CardServiceProvider extends ServiceProvider
         });
 
         Nova::serving(function (ServingNova $event) {
-            Nova::script('world-clock', __DIR__.'/../dist/js/card.js');
+            Nova::script('worldclock-card', __DIR__.'/../dist/js/card.js');
         });
     }
 
     /**
      * Register the card's routes.
-     *
      * @return void
      */
     protected function routes()

@@ -1,7 +1,6 @@
 <?php declare(strict_types=1);
 
 namespace InteractionDesignFoundation\WorldClockCard;
-
 use Laravel\Nova\Card;
 
 class WorldClock extends Card
@@ -14,7 +13,6 @@ class WorldClock extends Card
 
     /**
      * Create a new element.
-     *
      * @param string|null $component
      * @return void
      */
@@ -25,17 +23,15 @@ class WorldClock extends Card
         $this->withMeta([
             'timezoneDescriptions' => [],
             'nightHours' => [19, 6],
-            'refreshRoute' => route('nova.cards.worldClock.refresh')
+            'refreshRoute' => route('nova.cards.worldClock.refresh'),
+            'timeFormat' => 'h:i',
         ]);
     }
 
-    /**
-     * Get the component name for the element.
-     * @return string
-     */
+    /** @inheritDoc */
     public function component()
     {
-        return 'worldclock';
+        return 'worldclock-card';
     }
 
     /**
@@ -50,7 +46,7 @@ class WorldClock extends Card
     }
 
     /**
-     * @param string $timeFormat Time, compatible with date()function, {@see https://www.php.net/manual/en/function.date.php}
+     * @param string $timeFormat Time, compatible with date() function, {@see https://www.php.net/manual/en/function.date.php}
      * @return $this
      */
     public function timeFormat(string $timeFormat): static
@@ -75,7 +71,6 @@ class WorldClock extends Card
 
     /**
      * Hide continent from timezone name: Asia/Dubai => Dubai
-     *
      * @param bool $hideContinents
      * @return $this
      */
@@ -86,8 +81,11 @@ class WorldClock extends Card
         ]);
     }
 
-    /** How often to fetch new data from server */
-    public function updatePeriod(int $ms = 1000): static
+    /**
+     * How often to fetch new data from server.
+     * Use carefully: it produces an API request once per interval.
+     */
+    public function updatePeriod(int $ms): static
     {
         return $this->withMeta([
             'ms' => $ms,

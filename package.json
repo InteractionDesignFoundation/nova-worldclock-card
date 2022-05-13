@@ -7,17 +7,17 @@
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "nova:install": "npm --prefix='../../vendor/laravel/nova' ci"
     },
     "devDependencies": {
-        "laravel-mix": "^6.0.39",
-        "laravel-nova": "^1.12.3",
-        "vue-loader": "^15.9.7",
-        "vue-template-compiler": "^2.6.14"
+        "laravel-mix": "^6.0",
+        "vue-loader": "^16.8.3"
     },
     "dependencies": {
-        "vue": "^2.5.0"
+        "vue": "^3.0.0"
     }
 }

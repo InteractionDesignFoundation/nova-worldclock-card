@@ -32,16 +32,16 @@ public function cards()
             'Asia/Tokyo',
             'Asia/Dubai',
             'America/New_York',
-            'America/Los_Angeles',
+            'Europe/Kiev',
         ])
-        ->timeFormat('h:i') // Optional, time format. Default is: 'h:i:s'
-        ->updatePeriod(1000) // Optional, to set updating time period in millisecond. Default is 1000 ms (1sec)
+        ->timeFormat('h:i') // Optional, time format. Default is: 'h:i'
+        ->updatePeriod(1000) // Optional, to set updating time period in millisecond.
         ->nightRange(22, 6) // Optional, to set range of night hours. Default is [19; 6).
         ->hideContinents() // Optional, hide continents from timezone-names.
         ->timezoneDescriptions([ // Optional, add text description to timezones.
             'Asia/Tokyo' => 'Yuto, Hana',
             'Asia/Dubai' => 'Alya, Omar, Ibrahim',
-        ])
+        ]),
   ];
 }
 ```

@@ -1,8 +1,8 @@
 <template>
-    <card class="h-auto max-w-xs">
+    <Card class="h-auto max-w-xs">
         <div class="px-3 py-3">
             <div class="mt-2" id="app">
-                <table align="center" class="table">
+                <table align="center" class="ml-4 mr-4 w-full">
                     <tr>
                         <th class="tableHeader">City</th>
                         <th class="tableHeader">Time</th>
@@ -24,7 +24,7 @@
             </div>
 
         </div>
-    </card>
+    </Card>
 </template>
 
 <style scoped>
@@ -55,15 +55,19 @@
                 times: [],
             }
         },
-        created: function () {
-            this.getTime();
-            setInterval(this.getTime, this.card.ms)
-        },
         mounted() {
-            this.getTime();
+            this.fetch();
+            if (this.card.ms) {
+                this.interval = setInterval(this.fetch, this.card.ms);
+            }
+        },
+        unmounted() {
+          if (this.interval) {
+              clearInterval(this.interval);
+          }
         },
         methods: {
-            getTime() {
+            fetch() {
                 Nova.request()
                     .post(this.card.refreshRoute, {
                         timezones: this.card.timezones,
@@ -71,8 +75,8 @@
                         nightHours: this.card.nightHours,
                         hideContinents: this.card.hideContinents,
                     })
-                    .then(res => {
-                        this.times = res.data;
+                    .then(response => {
+                        this.times = response.data;
                     });
             },
         },

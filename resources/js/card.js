@@ -1,6 +1,6 @@
 /* global Nova */
-import Card from './components/Card.vue';
+import Card from './components/Card';
 
-Nova.booting((Vue) => {
-    Vue.component('worldclock', Card)
+Nova.booting((app, store) => {
+    app.component('worldclock-card', Card)
 });
