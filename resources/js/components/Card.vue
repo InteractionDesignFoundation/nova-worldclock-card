@@ -2,7 +2,7 @@
     <Card class="h-auto max-w-xs">
         <div class="px-3 py-3">
             <div class="mt-2" id="app">
-                <table align="center" class="ml-4 mr-4 w-full">
+                <table align="center" class="w-full">
                     <tr>
                         <th class="tableHeader">City</th>
                         <th class="tableHeader">Time</th>
