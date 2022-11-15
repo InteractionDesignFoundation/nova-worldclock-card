@@ -1,23 +1,23 @@
 <template>
-    <Card class="h-auto max-w-xs">
+    <Card class="h-auto max-w-md">
         <div class="px-3 py-3">
             <div class="mt-2" id="app">
                 <table align="center" class="w-full">
-                    <tr>
-                        <th class="tableHeader">City</th>
-                        <th class="tableHeader">Time</th>
+                    <tr class="timezoneRow">
+                        <th class="uppercase tracking-wide font-bold text-xs">City</th>
+                        <th class="uppercase tracking-wide font-bold text-xs">Time</th>
                     </tr>
                     <tr v-for="(tzInfo, tzRawName) in this.times">
-                        <td class="timezoneRow">
-                            <div>{{tzInfo.name}}</div>
+                        <td>
+                            <div><b>{{tzInfo.name}}</b></div>
                             <div v-if="card.timezoneDescriptions.hasOwnProperty(tzRawName)" class="text-xs text-grey mb-2">
                                 {{card.timezoneDescriptions[tzRawName]}}
                             </div>
                         </td>
-                        <td class="timezoneRow">
+                        <td style="white-space: nowrap;">
                             <time>{{tzInfo.time}}</time>
-                            <span v-if="tzInfo.night" class="night">🌙</span>
-                            <span v-if="!tzInfo.night" class="day">☀️</span>
+                            <span v-if="tzInfo.night" class="night ml-1">🌙</span>
+                            <span v-if="!tzInfo.night" class="day ml-1">☀️</span>
                         </td>
                     </tr>
                 </table>
@@ -40,10 +40,6 @@
 
     .timezoneRow {
         height: 35px !important;
-    }
-
-    .tableHeader {
-        background-color: transparent !important;
     }
 </style>
 
