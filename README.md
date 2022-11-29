@@ -1,11 +1,13 @@
 # World Clock Laravel Nova Card
 
-[![Latest Stable Version](https://poser.pugx.org/interaction-design-foundation/nova-worldclock-card/v/stable)](https://packagist.org/packages/interaction-design-foundation/nova-worldclock-card)
-[![Total Downloads](https://poser.pugx.org/interaction-design-foundation/nova-worldclock-card/downloads)](https://packagist.org/packages/interaction-design-foundation/nova-worldclock-card)
+![World Clock Laravel Nova Card](https://user-images.githubusercontent.com/5278175/69902036-267f7500-139a-11ea-834b-cd9f34f47b6f.png)
 
 A Laravel Nova card to display world clock.
 
-![image](https://user-images.githubusercontent.com/5278175/69902036-267f7500-139a-11ea-834b-cd9f34f47b6f.png)
+[![Latest Stable Version](https://poser.pugx.org/interaction-design-foundation/nova-worldclock-card/v/stable)](https://packagist.org/packages/interaction-design-foundation/nova-worldclock-card)
+[![Total Downloads](https://poser.pugx.org/interaction-design-foundation/nova-worldclock-card/downloads)](https://packagist.org/packages/interaction-design-foundation/nova-worldclock-card)
+
+
 
 
 ## Installation
