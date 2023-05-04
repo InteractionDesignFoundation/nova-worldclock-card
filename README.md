@@ -23,6 +23,24 @@ composer require interaction-design-foundation/nova-worldclock-card
 
 [Register your new card](https://nova.laravel.com/docs/2.0/customization/cards.html#registering-cards).
 
+Basic usage:
+```php
+use InteractionDesignFoundation\WorldClockCard\WorldClock;
+
+public function cards()
+{
+  return [
+     (new WorldClock())
+        ->timezones([
+            'Asia/Dubai',
+            'America/New_York',
+            'Europe/Kiev',
+        ]),
+  ];
+}
+```
+
+Advanced usage:
 ```php
 use InteractionDesignFoundation\WorldClockCard\WorldClock;
 
