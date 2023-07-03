@@ -1,6 +1,8 @@
 name: run-tests
 
-on: [ push, pull_request ]
+on:
+  - push
+  - pull_request
 
 jobs:
   test:
@@ -8,10 +10,10 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ ubuntu-latest ]
-        php: [ 8.1, 8.2 ]
-        laravel: [ 10.* ]
-        dependency-version: [ prefer-stable ]
+        os: [ubuntu-latest]
+        php: [8.1, 8.2]
+        laravel: [10.*]
+        dependency-version: ['--prefer-lowest', '--prefer-stable']
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
 
@@ -33,9 +35,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer config "http-basic.nova.laravel.com" "${{ secrets.NOVA_USERNAME }}" "${{ secrets.NOVA_4_LICENSE_KEY }}"
+          composer config "http-basic.nova.laravel.com" "${{ secrets.NOVA_USERNAME }}" "${{ secrets.NOVA_4_LICENSE_KEY }}" --ansi
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
-          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
+          composer update ${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest --ansi
         env:
           COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
 
