@@ -14,6 +14,7 @@ abstract class TestCase extends OrchestraTestCase
         parent::setUp();
 
         Route::middlewareGroup('nova', []);
+        Route::middlewareGroup('nova:api', []);
     }
 
     /** @inheritDoc */
