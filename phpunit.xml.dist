@@ -17,7 +17,8 @@
     </testsuite>
   </testsuites>
   <php>
-    </php>
+    <env name="APP_KEY" value="AckfSECXIvnK5r28GVIWUAxmbBSjTsmF"/>
+  </php>
   <source>
     <include>
       <directory suffix=".php">src/</directory>
