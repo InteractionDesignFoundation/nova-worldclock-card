@@ -5,7 +5,7 @@ namespace InteractionDesignFoundation\WorldClockCard\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
-class WorldClockController
+final class WorldClockController
 {
     /** @return array{string, array{name: string, time: string, night: bool}} */
     public function timezones(Request $request): array

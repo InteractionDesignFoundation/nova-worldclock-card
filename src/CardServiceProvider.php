@@ -9,26 +9,20 @@ use Laravel\Nova\Nova;
 
 class CardServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     * @return void
-     */
-    public function boot()
+    /** Bootstrap any application services. */
+    public function boot(): void
     {
         $this->app->booted(function () {
             $this->routes();
         });
 
-        Nova::serving(function (ServingNova $event) {
+        Nova::serving(static function (ServingNova $event) {
             Nova::script('worldclock-card', __DIR__.'/../dist/js/card.js');
         });
     }
 
-    /**
-     * Register the card's routes.
-     * @return void
-     */
-    protected function routes()
+    /** Register the card's routes. */
+    protected function routes(): void
     {
         if ($this->app->routesAreCached()) {
             return;

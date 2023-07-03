@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 namespace InteractionDesignFoundation\WorldClockCard;
+
 use Laravel\Nova\Card;
 
 class WorldClock extends Card
@@ -57,9 +58,9 @@ class WorldClock extends Card
     }
 
     /**
-     * Specify hours range: when a night starts and ends
-     * @param int $nightStart
-     * @param int $nightEnd
+     * Specify hour range: when a night starts and ends
+     * @param int<0, 24> $nightStart
+     * @param int<0, 24> $nightEnd
      * @return $this
      */
     public function nightRange(int $nightStart, int $nightEnd): static
@@ -70,8 +71,7 @@ class WorldClock extends Card
     }
 
     /**
-     * Hide continent from timezone name: Asia/Dubai => Dubai
-     * @param bool $hideContinents
+     * Hide a continent from timezone name: Asia/Dubai => Dubai
      * @return $this
      */
     public function hideContinents(bool $hideContinents = true): static

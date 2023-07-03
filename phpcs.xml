@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ruleset name="Package Coding Standard">
+    <!-- Include all rules from the IxDF Coding Standard -->
+    <rule ref="IxDFCodingStandard"/>
+
+    <!-- Paths to check -->
+    <file>routes</file>
+    <file>src</file>
+    <file>tests</file>
+</ruleset>

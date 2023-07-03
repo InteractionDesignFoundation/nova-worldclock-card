@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
-use InteractionDesignFoundation\WorldClockCard\Http\Controllers\WorldClockController;
 use Illuminate\Support\Facades\Route;
+use InteractionDesignFoundation\WorldClockCard\Http\Controllers\WorldClockController;
 
 /*
 |--------------------------------------------------------------------------
