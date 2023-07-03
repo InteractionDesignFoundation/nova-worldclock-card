@@ -6,19 +6,18 @@ on:
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest]
-        php: [8.1, 8.2]
+        php: ['8.1', '8.2']
         dependency-version: ['--prefer-lowest', '--prefer-stable']
         laravel: [10.*]
         include:
           - laravel: 10.*
             testbench: 8.*
 
-    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
+    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }}
 
     steps:
       - name: Checkout code
@@ -39,10 +38,7 @@ jobs:
       - name: Install dependencies
         run: |
           composer config "http-basic.nova.laravel.com" "${{ secrets.NOVA_USERNAME }}" "${{ secrets.NOVA_4_LICENSE_KEY }}" --ansi
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
-          composer update ${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest --ansi
-        env:
-          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
+          composer update ${{ matrix.dependency-version }} --prefer-dist --no-interaction --ansi --with="laravel/framework:${{ matrix.laravel }}" --with="orchestra/testbench:${{ matrix.testbench }}"
 
       - name: Execute tests
-        run: composer test
+        run: composer run test
