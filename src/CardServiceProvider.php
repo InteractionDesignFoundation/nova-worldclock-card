@@ -4,7 +4,6 @@ namespace InteractionDesignFoundation\WorldClockCard;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Nova;
 
 class CardServiceProvider extends ServiceProvider
@@ -16,7 +15,7 @@ class CardServiceProvider extends ServiceProvider
             $this->routes();
         });
 
-        Nova::serving(static function (ServingNova $event) {
+        Nova::serving(static function (): void {
             Nova::script('worldclock-card', __DIR__.'/../dist/js/card.js');
         });
     }

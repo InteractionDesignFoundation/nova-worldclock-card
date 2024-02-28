@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="5.22.2@d768d914152dbbf3486c36398802f74e80cfde48">
+  <file src="src/CardServiceProvider.php">
+    <UndefinedInterfaceMethod>
+      <code><![CDATA[routesAreCached]]></code>
+    </UndefinedInterfaceMethod>
+  </file>
+  <file src="src/Http/Controllers/WorldClockController.php">
+    <LessSpecificReturnStatement>
+      <code><![CDATA[$times]]></code>
+    </LessSpecificReturnStatement>
+    <MixedArgument>
+      <code><![CDATA[$timeFormat]]></code>
+    </MixedArgument>
+    <MixedAssignment>
+      <code><![CDATA[$timeFormat]]></code>
+    </MixedAssignment>
+    <MoreSpecificReturnType>
+      <code><![CDATA[array{string, array{name: string, time: string, night: bool}}]]></code>
+    </MoreSpecificReturnType>
+  </file>
+  <file src="src/WorldClock.php">
+    <PropertyNotSetInConstructor>
+      <code><![CDATA[WorldClock]]></code>
+    </PropertyNotSetInConstructor>
+  </file>
+</files>
