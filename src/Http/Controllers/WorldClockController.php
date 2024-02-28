@@ -19,9 +19,11 @@ final class WorldClockController
         $timeFormat = $request->input('timeFormat', 'h:i:s');
 
         $nightHours = $request->input('nightHours');
+        assert(is_array($nightHours) && array_is_list($nightHours) && count($nightHours) === 2, 'Night hours must be an array with two elements');
         $hideContinents = $request->json('hideContinents') === true;
 
         $times = [];
+        /** @var string $timezone */
         foreach ($request->input('timezones', []) as $timezone) {
             $time = now($timezone);
             $night = $this->isNight($time, (int) $nightHours[0], (int) $nightHours[1]);
