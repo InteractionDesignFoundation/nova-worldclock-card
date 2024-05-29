@@ -49,6 +49,7 @@
         data() {
             return {
                 times: [],
+                interval: null,
             }
         },
         mounted() {
@@ -56,11 +57,17 @@
             if (this.card.ms) {
                 this.interval = setInterval(this.fetch, this.card.ms);
             }
+
+            // Listener for tab change
+            document.addEventListener('visibilitychange', this.handleTabChange);
         },
-        unmounted() {
-          if (this.interval) {
-              clearInterval(this.interval);
-          }
+        beforeUnmount() {
+            if (this.interval) {
+                clearInterval(this.interval);
+            }
+
+            // Remove listener
+            document.removeEventListener('visibilitychange', this.handleTabChange);
         },
         methods: {
             fetch() {
@@ -74,6 +81,18 @@
                     .then(response => {
                         this.times = response.data;
                     });
+            },
+            handleTabChange() {
+                if (document.hidden) {
+                    if (this.interval) {
+                        clearInterval(this.interval);
+                        this.interval = null;
+                    }
+                } else {
+                    if (!this.interval && this.card.ms) {
+                        this.interval = setInterval(this.fetch, this.card.ms);
+                    }
+                }
             },
         },
     }
