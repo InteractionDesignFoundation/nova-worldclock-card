@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Nova;
 
-/** @phpcsSuppress SlevomatCodingStandard.Classes.RequireAbstractOrFinal.ClassNeitherAbstractNorFinal */
 class CardServiceProvider extends ServiceProvider
 {
     /** Bootstrap any application services. */

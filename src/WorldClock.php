@@ -4,7 +4,6 @@ namespace InteractionDesignFoundation\WorldClockCard;
 
 use Laravel\Nova\Card;
 
-/** @phpcsSuppress SlevomatCodingStandard.Classes.RequireAbstractOrFinal.ClassNeitherAbstractNorFinal */
 class WorldClock extends Card
 {
     /**
