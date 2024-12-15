@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.22.2@d768d914152dbbf3486c36398802f74e80cfde48">
+<files psalm-version="5.26.1@d747f6500b38ac4f7dfc5edbcae6e4b637d7add0">
   <file src="src/CardServiceProvider.php">
     <UndefinedInterfaceMethod>
       <code><![CDATA[routesAreCached]]></code>
@@ -18,10 +18,5 @@
     <MoreSpecificReturnType>
       <code><![CDATA[array{string, array{name: string, time: string, night: bool}}]]></code>
     </MoreSpecificReturnType>
-  </file>
-  <file src="src/WorldClock.php">
-    <PropertyNotSetInConstructor>
-      <code><![CDATA[WorldClock]]></code>
-    </PropertyNotSetInConstructor>
   </file>
 </files>
