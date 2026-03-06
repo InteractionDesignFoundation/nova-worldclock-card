@@ -4,7 +4,7 @@ namespace InteractionDesignFoundation\WorldClockCard;
 
 use Laravel\Nova\Card;
 
-class WorldClock extends Card
+final class WorldClock extends Card
 {
     /**
      * The width of the card (1/3, 1/2, or full).
