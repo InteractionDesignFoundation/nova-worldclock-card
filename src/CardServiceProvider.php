@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Nova;
 
-class CardServiceProvider extends ServiceProvider
+final class CardServiceProvider extends ServiceProvider
 {
     /** Bootstrap any application services. */
     public function boot(): void

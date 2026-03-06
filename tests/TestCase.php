@@ -9,7 +9,7 @@ use Orchestra\Testbench\TestCase as OrchestraTestCase;
 abstract class TestCase extends OrchestraTestCase
 {
     /** @inheritDoc */
-    public function setUp(): void
+    final protected function setUp(): void
     {
         parent::setUp();
 
