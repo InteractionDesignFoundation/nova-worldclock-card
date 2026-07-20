@@ -10,6 +10,8 @@ auth.json
 phpunit.xml
 .phpunit.result.cache
 .phpunit.cache/
+.php-cs-fixer.cache
+/.cache
 
 .DS_Store
 Thumbs.db
