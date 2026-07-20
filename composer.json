@@ -11,7 +11,7 @@
         "world"
     ],
     "require": {
-        "php": "^8.3",
+        "php": "^8.4",
         "ext-json": "*",
         "laravel/nova": "^4.20 || ^5.0"
     },
@@ -57,9 +57,13 @@
         }
     },
     "scripts": {
-        "cs": "@cs:fix",
+        "cs": [
+            "@php-cs-fixer",
+            "@cs:fix"
+        ],
         "cs:check": "phpcs -p -s --colors --report-full --report-summary",
-        "cs:fix": "phpcbf -p --colors",
+        "cs:fix": "phpcbf -p --colors --cache=.cache/phpcs",
+        "php-cs-fixer": "php-cs-fixer fix --no-interaction",
         "psalm": "cpx psalm",
         "sa": "@psalm",
         "sa:bl": "cpx psalm --set-baseline=psalm-baseline.xml --long-progress --threads=1",
