@@ -2,8 +2,8 @@
 
 namespace InteractionDesignFoundation\WorldClockCard\Http\Controllers;
 
+use Carbon\CarbonInterface;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 
 final class WorldClockController
 {
@@ -48,9 +48,9 @@ final class WorldClockController
         return $prettifiedTimezone;
     }
 
-    private function isNight(Carbon $dateTime, int $nightStart, int $nightEnd): bool
+    private function isNight(CarbonInterface $dateTime, int $nightStart, int $nightEnd): bool
     {
-        $currentHour = $dateTime->hour;
+        $currentHour = (int) $dateTime->format('G');
 
         return $currentHour >= $nightStart || $currentHour < $nightEnd;
     }
