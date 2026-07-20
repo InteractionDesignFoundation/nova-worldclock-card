@@ -29,7 +29,7 @@ final class WorldClock extends Card
         ]);
     }
 
-    /** @inheritDoc */
+    #[\Override]
     public function component()
     {
         return 'worldclock-card';

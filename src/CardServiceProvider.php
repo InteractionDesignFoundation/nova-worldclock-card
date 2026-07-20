@@ -11,7 +11,7 @@ final class CardServiceProvider extends ServiceProvider
     /** Bootstrap any application services. */
     public function boot(): void
     {
-        $this->app->booted(function () {
+        $this->app->booted(function (): void {
             $this->routes();
         });
 
