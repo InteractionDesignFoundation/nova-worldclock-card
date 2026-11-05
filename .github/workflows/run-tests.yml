@@ -10,10 +10,8 @@ jobs:
       matrix:
         php: [ 8.5, 8.4 ]
         dependency-version: ['--prefer-lowest', '--prefer-stable']
-        laravel: [12.*, 11.*]
+        laravel: [12.*]
         include:
-          - laravel: 11.*
-            testbench: 9.*
           - laravel: 12.*
             testbench: 10.*
           # L13 matrix entry ready for when laravel/nova supports it:
